@@ -69,6 +69,13 @@
             <artifactId>h2</artifactId>
             <version>1.2.131</version>
         </dependency>
+        
+        <!-- Oracle -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
+		</dependency>
 
         <!-- Dependencias de ehcache -->
         <dependency>
@@ -248,6 +255,10 @@
                 <updatePolicy>never</updatePolicy>
             </snapshots>
         </repository>
+        <repository>
+			<id>mesir-repo</id>
+			<url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
+		</repository>
     </repositories>
     
 </project>

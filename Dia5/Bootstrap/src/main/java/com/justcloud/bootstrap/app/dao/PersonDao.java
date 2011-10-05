@@ -12,5 +12,7 @@ import org.springframework.dao.DataAccessException;
 public interface PersonDao extends GenericDao<Person> {
     
     public Person getPersonByUsername(String username) throws DataAccessException, EntityNotFoundException;
+    public Person getPersonByUsernameCriteria(String username);
+    public Person getPersonByUsernameNative(String username);
     
 }
