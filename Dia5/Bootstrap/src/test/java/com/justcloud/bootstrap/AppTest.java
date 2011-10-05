@@ -58,23 +58,9 @@ public class AppTest
         comment.setComment("Comentario prueba");
         
         post.addCommentToPost(comment);
+        
+        
         personDao.save(person);
-	}
-	
-	@After
-	public void tearDown() {
-		personDao.delete(person);
-	}
-	
-	@Test
-	public void testFirstPost() {
-		Post p = postDao.get(1L);
-		Assert.assertEquals(post.getTitle(), p.getTitle());
-	}
-	
-	@Test
-	public void testFirstComment() {
-		Assert.assertEquals(1, commentDao.getAll().size());
 	}
 	
 	@Test(expected=EntityNotFoundException.class)
@@ -89,4 +75,21 @@ public class AppTest
         Assert.assertEquals("username", person.getUsername());
         Assert.assertEquals(1, person.getPosts().size());
     }
+	
+	@Test
+    public void testFindCriteriaUsername() {
+        person = personDao.getPersonByUsernameCriteria("username");
+        Assert.assertNotNull(person);
+        Assert.assertEquals("username", person.getUsername());
+        Assert.assertEquals(1, person.getPosts().size());
+    }
+	
+	@Test
+    public void testFindNativeUsername() {
+        person = personDao.getPersonByUsernameNative("username");
+        Assert.assertNotNull(person);
+        Assert.assertEquals("username", person.getUsername());
+        Assert.assertEquals(1, person.getPosts().size());
+    }
+	
 }
